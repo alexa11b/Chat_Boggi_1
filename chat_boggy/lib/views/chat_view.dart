@@ -1,3 +1,4 @@
+import 'package:chat_boggy/Widgets/message_field_box.dart';
 import 'package:chat_boggy/views/her_message_bubbie_view.dart';
 import 'package:chat_boggy/views/my_message_bubbie_view.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class ChatView extends StatelessWidget {
                       ? HerMessageBubbieView(
                           colorScheme: colorScheme,
                           urlImagenBubble:
-                              "https://yesno.wtf/assets/no/8-5e08abbe5aacd2cf531948145b787e9a.gif",
+                              'https://yesno.wtf/assets/no/8-5e08abbe5aacd2cf531948145b787e9a.gif',
                         )
                       : MyMessageBubbieView(
                           colorScheme: colorScheme,
@@ -34,6 +35,7 @@ class ChatView extends StatelessWidget {
               ),
             ),
           ),
+          const MessageFieldBox(),
         ],
       ),
     );
