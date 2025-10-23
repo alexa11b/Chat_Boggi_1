@@ -1,13 +1,14 @@
-import 'package:chat_boggy/Widgets/message_bubble.dart';
+import 'package:chat_boggy/domain/entities/message.dart';
+import 'package:chat_boggy/presentation/Widgets/message_bubble.dart';
 import 'package:flutter/material.dart';
 
 class HerMessageBubbieView extends StatelessWidget {
   final ColorScheme colorScheme;
-  final String urlImagenBubble;
+  final Message message;
   const HerMessageBubbieView({
     super.key,
     required this.colorScheme,
-    required this.urlImagenBubble,
+    required this.message,
   });
 
   @override
@@ -15,8 +16,11 @@ class HerMessageBubbieView extends StatelessWidget {
     return MessageBubble(
       alignment: CrossAxisAlignment.start,
       colorBubble: colorScheme.secondary,
-      child: null,
-      urlImagenBubble: urlImagenBubble,
+      child: Text(
+        message.text,
+        style: TextStyle(color: colorScheme.onSecondary),
+      ),
+      urlImagenBubble: message.imageUrl!,
     );
   }
 }

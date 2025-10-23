@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MessageFieldBox extends StatelessWidget {
-  const MessageFieldBox({super.key});
+class MessageFieldBox extends StatefulWidget {
+  final Function(String) onSend;
+  const MessageFieldBox({super.key, required this.onSend});
 
+  @override
+  State<MessageFieldBox> createState() => _MessageFieldBoxState();
+}
+
+class _MessageFieldBoxState extends State<MessageFieldBox> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController textController = TextEditingController();
@@ -15,18 +21,22 @@ class MessageFieldBox extends StatelessWidget {
         colors: colors,
         onSend: () {
           print('quiero enviar el mensaje ${textController.text}');
-          textController.clear();
-          focusNode.requestFocus();
+          if (textController.value.text.isNotEmpty) {
+            widget.onSend(textController.value.text);
+            textController.clear();
+            focusNode.requestFocus();
+          }
         },
       ),
       onTapOutside: (event) {
-        print("Quieren Saber que se hace $event");
+        print('Quieren Saber que se hace $event');
         focusNode.unfocus();
       },
       onFieldSubmitted: (value) {
         print(
-          "Aqui se puso un enter bien locochon por que despues nos enojamos $value",
+          'Aqui se puso un enter bien locochon por que despues nos enojamos $value',
         );
+        widget.onSend(value);
         textController.clear();
         focusNode.requestFocus();
       },
