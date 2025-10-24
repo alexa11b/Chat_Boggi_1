@@ -3,7 +3,7 @@ import 'package:chat_boggy/infrastructure/dto/yes_no_answer.dart';
 import 'package:dio/dio.dart';
 
 class GetYesNoAnswer {
-  final Dio _dio = Dio(BaseOptions(baseUrl: 'https://yesno.wtf'));
+  final _dio = Dio(BaseOptions(baseUrl: 'https://yesno.wtf'));
 
   Future<Message> getAnswer() async {
     final response = await _dio.get('/api');

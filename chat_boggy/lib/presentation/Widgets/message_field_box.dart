@@ -49,7 +49,7 @@ class _MessageFieldBoxState extends State<MessageFieldBox> {
   }) => InputDecoration(
     enabledBorder: _customOutlineInputBorder(colors.primary),
     focusedBorder: _customOutlineInputBorder(colors.primaryContainer),
-    hintText: 'Escribe un mensaje',
+    hintText: 'Envia tu pregunta: ',
     suffixIcon: IconButton(onPressed: onSend, icon: const Icon(Icons.send)),
   );
   OutlineInputBorder _customOutlineInputBorder(Color color) =>
